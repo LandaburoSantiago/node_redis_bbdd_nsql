@@ -1,0 +1,13 @@
+web:
+  build: .
+  command: sh -c "npm install; npm run start"
+  ports:
+    - '3000:3000'
+  volumes:
+    - /home/santiago/Documents/bbdd_nsql/node/node_redis:/node_redis
+  links:
+    - 'db:redis'
+db:
+  image: redis
+  ports:
+    - "6379:6379"
